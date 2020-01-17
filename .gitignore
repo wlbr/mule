@@ -1,0 +1,47 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+#coverage.out
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.glide/
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+_testmain.go
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.prof
+
+
+#ide stuff
+*.sublime-workspace
+*.sublime-project
+.idea/
+.vscode/
+
+#binaries and generated stuff
+bin/
+_examples/
+data/
+README.html
