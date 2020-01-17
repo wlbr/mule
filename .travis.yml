@@ -5,6 +5,7 @@ git:
 go:
   - tip
 before_install:
+  - go get github.com/wlbr/templify
   - go get github.com/mattn/goveralls
   - $HOME/gopath/bin/goveralls -service=travis-ci
 script:
