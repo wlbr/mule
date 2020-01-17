@@ -1,6 +1,8 @@
 package main
 
 //go:generate mule gopher.jpg
+// the line above executes mule to generate a go source code representation
+// of gopher.jpg, whenever you run `go generate` in this directory.
 
 import (
 	"fmt"
@@ -10,8 +12,8 @@ import (
 func main() {
 	// once you did a 'go generate' and then a 'go build' in this folder, you will have
 	// an executable 'example' that has the image gopher.jpg included. (See line 3 above).
-	// So if you run 'mulex' now, then it will create a new jpg in you filesystem
-	// called 'gopherexported.jpg'.
+	//
+	// With the follwing code we access this embedded resource and write it to disk.
 
 	//Embedded template
 
