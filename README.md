@@ -42,6 +42,7 @@ Usage of mule: `mule [switches] resourcefilename`<br>
    -e<br>
       export the generated, the resource returning function. Default (false) means
       the function will not be exported.
+      
    -f<br>
       no formatting of the generated source. Default false means source will be
       formatted with gofmt.
