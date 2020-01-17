@@ -18,7 +18,7 @@ generate: embed.tpl		## generate the code generation template (called by build).
 build: generate mule.go embed.go		## create executable.
 	go build mule.go embed.go
 
-test: generate mule.go embed.tpl embed.go mule_test.go		## run the tests.
+test: mule.go embed.tpl embed.go mule_test.go		## run the tests.
 	go test
 
 examples: example/ex.tpl example/templifying.go		## compile ht example in its subfolder.
