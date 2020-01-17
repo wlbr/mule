@@ -1,16 +1,19 @@
-# templify
-A tool to be used with 'go generate' to embed external template files into Go code.
+# mule
+A tool to be used with 'go generate' to embed external resources into Go code to create 
+single file exceutables without any dependencies.
 
 
 ## Scenario
 
 An often used scenario in developing go applications is to embed external resources
 to be able to create only one binary without any dependencies.
-There are a number of existing packages solving this problem, ie bindata or packr.
+There are a number of existing packages solving this problem, like bindata or packr 
+and if you are looking for fancy features and unicorns should probably better go there.
 Usually they are creating a kind of virtual file system
-This package 'mule' (the kinda donkey carrying huge loads) takes much simpler approach.
+
+This package 'mule' (the kinda donkey carrying huge loads) takes _much simpler_ approach.
 It just generates a single .go file for each resource you want to embed, including the
-encoded resource wrapped in a function to access it
+encoded resource wrapped in a function to access it.
 
 It is intended to be run by go generate, though that is not required.
 
@@ -27,6 +30,8 @@ Simply add a line
 for each resource you want to embed. Every time you run a 'go generate' in the
 corresponding folder, the file 'mybinary.go' will be created. It contains a
 function 'mybinaryResource' returning the resource as a []byte.
+
+See [mulex.go](https://github.com/wlbr/mule/blob/master/example/mulex.go) for a very, very simple example.
 
 You may use 'mule mytbinary.file' directly on the command line.
 
