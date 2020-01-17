@@ -5,11 +5,11 @@
 //
 // An often used scenario in developing go applications is to embed external resources
 // to be able to create only one binary without any dependencies.
-// There are a number of existing packages solving this problem, ie bindata or packr.
-// Usually they are creating a kind of virtual file system
-// This package 'mule' (the kinda donkey carrying huge loads) takes much simpler approach.
-// It just generates a single .go file for each resource you want to embed, including the
-// encoded resource wrapped in a function to access it
+// There are a number of existing packages solving this problem, like [bindata](https://github.com/a-urth/go-bindata),
+// [packr](https://github.com/gobuffalo/packr/tree/master/v2) or [packger](https://github.com/markbates/pkger)
+// and if you are looking for fancy features and unicorns you should probably better go there.
+// Usually they are creating a kind of virtual file system. Usually this realy alot more than I need for my
+// simple usecase on including one or two files into a small cli program.
 //
 // It is intended to be run by go generate.
 //
@@ -32,6 +32,7 @@
 //    -e
 //       export the generated, the resource returning function. Default (false) means
 //       the function will not be exported.
+//
 //    -f
 //       no formatting of the generated source. Default false means source will be
 //       formatted with gofmt.
@@ -131,9 +132,7 @@ func readTargetResource(resname string) string {
 		os.Exit(1)
 	}
 
-	//r := strings.NewReplacer("\"", "\\\"", "\n", "\\n\" +\n\t\"", "\t", "\\t", "\r", "\\r", "\\", "\\\\")
 	return encoded
-
 }
 
 func formatFile(fname string) {
@@ -199,14 +198,4 @@ func main() {
 		formatFile(outfilename)
 	}
 
-	/* //------------------
-	testout, err := os.Create("out.mp4")
-	if err != nil {
-		fmt.Printf("Error creating target file '%s'\n%v\n", testout.Name(), err)
-		os.Exit(1)
-	}
-	defer testout.Close()
-	bin, _ := smyletransitionResource()
-	testout.Write(bin)
-	testout.Sync()*/
 }

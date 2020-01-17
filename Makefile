@@ -4,7 +4,7 @@ all: generate test build		## a simple call of 'make' without arguments will do e
 .PHONY: clean
 clean:		## tidy up everything.
 	rm -f mule
-	rm -f embed.go
+	#rm -f embed.go
 	rm -f example/mulex
 	rm -f example/gopher.go
 	rm -f example/example
