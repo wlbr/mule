@@ -27,9 +27,10 @@ It is intended to be run by go generate, though that is not required.
 ## Usage
 
 Simply add a line
-   `//go:generate mule mybinary.file`
 
-for each resource you want to embed. Every time you run a 'go generate' in the
+   `//go:generate mule mybinary.file`
+   
+to one of your source file for each resource you want to embed. Every time you run a 'go generate' in the
 corresponding folder, the file 'mybinary.go' will be created. It contains a
 function 'mybinaryResource' returning the resource as a []byte.
 
