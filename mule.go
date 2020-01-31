@@ -13,7 +13,7 @@
 // Generelly this really a lot more than I need for my
 // simple usecase in including one or two files into a small cli program.
 //
-// Compared to that mule is extremly simple. The only thing you need to embed a file
+// Compared to that mule is extremely simple. The only thing you need to embed a file
 // to your code is one line in your code (a go generate command).
 // And you need just another one line to access the embedded file from your code.
 //
