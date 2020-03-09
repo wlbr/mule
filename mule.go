@@ -129,20 +129,18 @@ func flagging() {
 func readMuleTemplate(tplname string) (*template.Template, error) {
 	tpl, err := template.ParseFiles(tplname)
 	if err != nil {
-		fmt.Printf("Error reading muletemplate file '%s'\n%v", tplname, err)
+		fmt.Printf("Error reading muletemplate file '%s'\n%v\n", tplname, err)
 	}
 	return tpl, err
 }
 
-func readTargetResource(resname string) string {
+func readTargetResource(resname string) (string, error) {
 	res, err := ioutil.ReadFile(resname)
 	encoded := base64.StdEncoding.EncodeToString(res)
 	if err != nil {
-		fmt.Printf("Error reading target resource file '%s'\n%v", resname, err)
-		os.Exit(1)
+		fmt.Printf("Error reading target resource file '%s'\n%v\n", resname, err)
 	}
-
-	return encoded
+	return encoded, err
 }
 
 func formatFile(fname string) {
@@ -194,7 +192,11 @@ func main() {
 		Package: pckg,
 		Name:    strings.Split(functionname, ".")[0],
 	}
-	data.Content = readTargetResource(inputfile)
+	data.Content, err = readTargetResource(inputfile)
+	if err != nil {
+		fmt.Printf("Error reading target resource file file '%s'\n%v\n", inputfile, err)
+		os.Exit(1)
+	}
 
 	outfile, err := os.Create(outfilename)
 	if err != nil {
