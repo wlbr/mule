@@ -18,12 +18,12 @@ generate: embed.tpl		## generate the code generation template (called by build).
 build: generate mule.go embed.go		## create executable.
 	go build mule.go embed.go
 
-test: generate mule.go embed.tpl embed.go mule_test.go		## run the tests.
+test: generate mule.go embed.tpl embed.go mule_test.go embed_test.go		## run the tests.
 	go test
 
-examples: example/ex.tpl example/templifying.go		## compile ht example in its subfolder.
-	go generate example/templifying.go
-	go build example/templifying.go example/ex.go
+examples: example/mulex.go example/gopher.jpg example/gopher.go  	 	## compile the example in its subfolder.
+	go generate example/mulex.go
+	go build example/mulex.go example/gopher.go
 
 dep:		## install all needed dependencies
 	go get github.com/wlbr/templify

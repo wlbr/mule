@@ -1,5 +1,5 @@
 # mule
-A tool to be used with 'go generate' to embed external resources into Go code to create 
+A tool to be used with 'go generate' to embed external resources into Go code to create
 single file exceutables without any dependencies.
 
 
@@ -7,10 +7,10 @@ single file exceutables without any dependencies.
 
 An often used scenario in developing go applications is to embed external resources
 to be able to create only one binary without any dependencies.
-There are a number of existing packages solving this problem, like [bindata](https://github.com/a-urth/go-bindata), 
-[packr](https://github.com/gobuffalo/packr/tree/master/v2) or [packger](https://github.com/markbates/pkger) 
+There are a number of existing packages solving this problem, like [bindata](https://github.com/a-urth/go-bindata),
+[packr](https://github.com/gobuffalo/packr/tree/master/v2) or [packger](https://github.com/markbates/pkger)
 and if you are looking for fancy features and unicorns you should probably better go there.
-Usually they are creating a kind of virtual file system. Usually this realy alot more than I need for my 
+Usually they are creating a kind of virtual file system. Usually this realy alot more than I need for my
 simple usecase on including one or two files into a small cli program.
 
 This package 'mule' (the kinda donkey carrying huge loads) takes a _much simpler_ approach.
@@ -29,7 +29,7 @@ It is intended to be run by go generate, though that is not required.
 Simply add a line
 
    `//go:generate mule mybinary.file`
-   
+
 to one of your source file for each resource you want to embed. Every time you run a 'go generate' in the
 corresponding folder, the file 'mybinary.go' will be created. It contains a
 function 'mybinaryResource' returning the resource as a []byte.
@@ -45,7 +45,7 @@ Usage of mule: `mule [switches] resourcefilename`<br>
    -e<br>
       export the generated, the resource returning function. Default (false) means
       the function will not be exported.
-      
+
    -f<br>
       no formatting of the generated source. Default false means source will be
       formatted with gofmt.
