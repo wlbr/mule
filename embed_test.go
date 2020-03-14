@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-var SOURCETEMPLATE="embed.tpl"
+var SOURCETEMPLATE = "embed.tpl"
 
 func TestGeneratedTemplateFunktion(t *testing.T) {
 	// This test is rather nonsense, as it tests a generated funktion
@@ -24,11 +24,10 @@ func TestGeneratedTemplateFunktion(t *testing.T) {
 		fmt.Printf("Could not read source template file '%s'.\n", SOURCETEMPLATE)
 		t.Fail()
 	}
-	sourcetemplate:=string(sourcetemplatebytearray)
+	sourcetemplate := string(sourcetemplatebytearray)
 	if sourcetemplate != template {
 		fmt.Printf("Source template file '%s' and result of generated template function differ.\n", SOURCETEMPLATE)
 		t.Fail()
 	}
 
 }
-
