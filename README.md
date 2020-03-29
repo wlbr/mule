@@ -10,7 +10,7 @@ to be able to create only one binary without any dependencies.
 There are a number of existing packages solving this problem, like [bindata](https://github.com/a-urth/go-bindata),
 [packr](https://github.com/gobuffalo/packr/tree/master/v2) or [packger](https://github.com/markbates/pkger)
 and if you are looking for fancy features and unicorns you should probably better go there.
-Usually they are creating a kind of virtual file system. Usually this realy alot more than I need for my
+Usually they are creating a kind of virtual file system. Usually this really a lot more than I need for my
 simple usecase on including one or two files into a small cli program.
 
 This package 'mule' (the kinda donkey carrying huge loads) takes a _much simpler_ approach.
