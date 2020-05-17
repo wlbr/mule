@@ -15,8 +15,6 @@ func main() {
 	//
 	// With the follwing code we access this embedded resource and write it to disk.
 
-	//Embedded template
-
 	gopher, err := gopherResource() //decoding the embedded resource
 
 	if err != nil {
