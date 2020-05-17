@@ -10,8 +10,8 @@ to be able to create only one binary without any dependencies.
 There are a number of existing packages solving this problem, like [bindata](https://github.com/a-urth/go-bindata),
 [packr](https://github.com/gobuffalo/packr/tree/master/v2) or [packger](https://github.com/markbates/pkger)
 and if you are looking for fancy features and unicorns you should probably better go there.
-Usually they are creating a kind of virtual file system. Usually this really a lot more than I need for my
-simple usecase on including one or two files into a small cli program.
+Usually they are creating a kind of virtual file system. Usually this is really a lot more than I need for my
+simple usecase of including one or two files into a small cli program.
 
 This package 'mule' (the kinda donkey carrying huge loads) takes a _much simpler_ approach.
 It just generates a single .go file for each resource you want to embed, including the
@@ -36,7 +36,7 @@ function 'mybinaryResource' returning the resource as a []byte.
 
 See [mulex.go](https://github.com/wlbr/mule/blob/master/example/mulex.go) for a very, very simple example.
 
-You may use 'mule mytbinary.file' directly on the command line.
+You may use 'mule mybinary.file' directly on the command line.
 
 
 ## Switches
