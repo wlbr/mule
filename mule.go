@@ -185,9 +185,10 @@ func main() {
 	}
 
 	data := struct {
-		Package string
-		Name    string
-		Content string
+		Package      string
+		Name         string
+		Content      string
+		EmptyContent bool
 	}{
 		Package: pckg,
 		Name:    strings.Split(functionname, ".")[0],
@@ -196,6 +197,10 @@ func main() {
 	if err != nil {
 		fmt.Printf("Error reading target resource file file '%s'\n%v\n", inputfile, err)
 		os.Exit(1)
+	}
+
+	if len(data.Content) == 0 {
+		data.EmptyContent = true
 	}
 
 	outfile, err := os.Create(outfilename)
