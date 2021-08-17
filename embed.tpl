@@ -6,11 +6,12 @@
 
 package {{.Package}}
 
-import "encoding/base64"
+	{{ if not .EmptyContent }} import "encoding/base64"
+{{ end }}
 
 // {{.Name}}Resource is a generated function returning the Resource as a []byte.
 func {{.Name}}Resource() ([]byte, error) {
 	var resource = "{{.Content}}"
 
-	return base64.StdEncoding.DecodeString(resource)
+	return {{ if .EmptyContent }} []byte(resource), nil{{ else }}base64.StdEncoding.DecodeString(resource){{ end }}
 }

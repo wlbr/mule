@@ -17,14 +17,19 @@ func embedTemplate() string {
 		"\n" +
 		"package {{.Package}}\n" +
 		"\n" +
+		"\t{{ if not .EmptyContent }} " +
 		"import \"encoding/base64\"\n" +
+		"{{ end }}\n" +
 		"\n" +
 		"// {{.Name}}Resource is a generated function returning the Resource as a []byte.\n" +
 		"func {{.Name}}Resource() ([]byte, error) {\n" +
 		"\tvar resource = \"{{.Content}}\"\n" +
 		"\n" +
-		"\treturn base64.StdEncoding.DecodeString(resource)\n" +
-		"}\n" +
-		""
+		"\treturn {{ if .EmptyContent }} " +
+		"[]byte(resource), nil" +
+		"{{ else }}" +
+		"base64.StdEncoding.DecodeString(resource)" +
+		"{{ end }}\n" +
+		"}\n" + ""
 	return tmpl
 }
